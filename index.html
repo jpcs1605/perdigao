@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+	<meta charset="utf-8"/> 
+	<meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+	<meta name="ad.size" content="width=970,height=250">
+	<link rel="stylesheet" href="style.css"/>
+	<script type="text/javascript">
+		var clickTag = "http://www.google.com";
+	</script>
+</head>
+
+<body>
+    <a href="javascript:window.open(window.clickTag); void(0)" >
+        <div class="banner">
+            <!-----STEP 01----->
+            <div class="a1 absolute op"></div>
+            <div class="a2 absolute op"></div>
+            <div class="a3 absolute op"></div>
+
+            <!-----STEP 02----->
+            <div class="b_txt1 absolute op"></div>
+            <div class="b_txt2 absolute op"></div>
+            <div class="b_txt3 absolute op"></div>
+            <div class="logo absolute op"></div>
+            <div class="b3_1 absolute op"></div>
+            <div class="b3_2 absolute op"></div>
+            <div class="b4 absolute op"></div>
+            <div class="b5 absolute op"></div>
+            <div class="b6 absolute op"></div>
+
+            <!-----STEP 03----->
+            <div class="c_txt1 absolute op"></div>
+            <div class="c_txt2 absolute op"></div>
+            <div class="c_txt3 absolute op"></div>
+        </div>
+    </a>
+
+    <script type="text/javascript">
+
+        /* START */
+
+            var animation,
+                currentTime,
+                a1, a2, a3, b_txt1, b_txt2, b_txt3, b3_1, b3_2, logo, b4, b5, b6;
+
+            /** Functions ***/
+
+                function startStep1(){
+                    currentTime = 0;
+                    clearInterval(animation);
+                    animation = setInterval( step1,  100);
+                }
+
+                function startStep2(){
+                    currentTime = 0;
+                    clearInterval(animation);
+                    animation = setInterval( step2,  100);
+                }
+                function startStep3(){
+				currentTime = 0;
+				clearInterval(animation);
+				animation = setInterval( step3,  100);
+			    }
+
+
+
+            function initAnimation(){
+                a1=document.querySelector('.a1');
+                a2 = document.querySelector('.a2');
+                a3 = document.querySelector('.a3');
+                b_txt1 = document.querySelector('.b_txt1');
+                b_txt2 = document.querySelector('.b_txt2');
+                b_txt3 = document.querySelector('.b_txt3');
+                b3_1 = document.querySelector('.b3_1');
+                b3_2 = document.querySelector('.b3_2');
+                logo = document.querySelector('.logo');
+                b4 = document.querySelector('.b4');
+                b5 = document.querySelector('.b5');
+                b6 = document.querySelector('.b6');
+
+                c_txt1 = document.querySelector('.c_txt1');
+                c_txt2 = document.querySelector('.c_txt2');
+                c_txt3 = document.querySelector('.c_txt3');
+
+
+                step01 = document.querySelector('.step01');
+                b_linha1 = document.querySelector('.b_linha1');
+                b_linha2 = document.querySelector('.b_linha2');
+                b_linha3 = document.querySelector('.b_linha3');
+
+
+                
+                startStep1();
+            }
+
+
+        function step1(){
+            currentTime = parseFloat( (currentTime + 0.1).toFixed(2) );
+
+            if (currentTime == 0.1) {
+                return a1.classList.add('_in');
+            }
+            if (currentTime == 0.9) {
+                a2.classList.add('_in');
+                return a3.classList.add('_in');
+                
+            }
+            if (currentTime == 2.5) {
+                a2.classList.add('_out');
+                return a3.classList.add('_out');
+            }
+            if (currentTime == 3.0) {
+                a1.classList.add('_out');
+                return startStep2();
+            }
+        }
+
+        function step2(){
+            currentTime = parseFloat( (currentTime + 0.1).toFixed(2) );
+
+            
+            if (currentTime == 0.1) {
+                return b_txt1.classList.add('_in');
+            }
+            if (currentTime == 0.9) {
+                return b_txt2.classList.add('_in');
+            }
+            if (currentTime == 1.7) {
+                return b_txt3.classList.add('_in');
+            }
+            if (currentTime == 2.2) {
+                return logo.classList.add('_in');
+            }
+            if (currentTime == 2.8) {
+                return logo.classList.add('_pulse');
+            }
+            if (currentTime == 2.9) {
+                b3_1.classList.add('_meio');
+                return b3_2.classList.add('_meio');
+            }
+            if (currentTime == 3.5) {
+                return b5.classList.add('_in');
+            }
+            if (currentTime == 4.0) {
+                b6.classList.add('_in');
+                b3_1.classList.add('_garfo_abrindo');
+                return b3_2.classList.add('_garfo_abrindo');
+            }
+            if (currentTime == 4.1) {
+                return b4.classList.add('_in');
+            }
+            if (currentTime == 4.7) {
+                b3_1.classList.add('_garfo_girando');
+                return b3_2.classList.add('_garfo_girando');
+            }
+            if (currentTime == 4.7) {
+                b3_1.classList.add('_garfo_girando');
+                return b3_2.classList.add('_garfo_girando');
+            }
+            if (currentTime == 5.5) {
+                b_txt1.classList.add('_out');
+                b_txt2.classList.add('_out');
+                b_txt3.classList.add('_out');
+                return startStep3();
+            }           
+
+
+        }
+
+        function step3(){
+		currentTime = parseFloat( (currentTime + 0.1).toFixed(2) );
+
+                if (currentTime == 0.1) {
+                        return c_txt1.classList.add('_in');
+                    }
+                if (currentTime == 0.9) {
+                    return c_txt2.classList.add('_in');
+                }
+                if (currentTime == 1.7) {
+                    return c_txt3.classList.add('_in');
+                }
+                if (currentTime == 1.9) {
+                    return logo.classList.add('_out');
+                }			
+        }    
+
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+            initAnimation();
+        });
+    </script>
+
+</body>
+</html>
